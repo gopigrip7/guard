@@ -47,6 +47,9 @@ func write(w http.ResponseWriter, info *auth.UserInfo, err error) {
 		}
 	}
 
+	d, _ := json.MarshalIndent(resp, "", "  ")
+	fmt.Println(d)
+
 	err = json.NewEncoder(w).Encode(resp)
 	if err != nil {
 		panic(err)
