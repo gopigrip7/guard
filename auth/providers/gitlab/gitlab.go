@@ -59,7 +59,7 @@ func (g *Authenticator) Check(token string) (*authv1.UserInfo, error) {
 			return nil, errors.Wrap(err, "failed to load groups")
 		}
 		for _, g := range list {
-			groups = append(groups, g.Name)
+			groups = append(groups, g.FullPath)
 		}
 		if len(list) < pageSize {
 			break
